@@ -1,0 +1,212 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| practice           |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use practice;
+Database changed
+mysql> show tables;
+Empty set (0.02 sec)
+
+mysql> create table studentsbasicinfo(id int(5), name varchar(50), phone varchar(10), address varchar(50));
+Query OK, 0 rows affected, 1 warning (0.05 sec)
+
+mysql> desc studentsbasicinfo
+    -> ;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | YES  |     | NULL    |       |
+| name    | varchar(50) | YES  |     | NULL    |       |
+| phone   | varchar(10) | YES  |     | NULL    |       |
+| address | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> describe studentsbasicinfo;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | YES  |     | NULL    |       |
+| name    | varchar(50) | YES  |     | NULL    |       |
+| phone   | varchar(10) | YES  |     | NULL    |       |
+| address | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table employee add column email varchar(50);
+ERROR 1146 (42S02): Table 'practice.employee' doesn't exist
+mysql> alter table studentsbasicinfo add column email varchar(50);
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe studentsbasicinfo;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | YES  |     | NULL    |       |
+| name    | varchar(50) | YES  |     | NULL    |       |
+| phone   | varchar(10) | YES  |     | NULL    |       |
+| address | varchar(50) | YES  |     | NULL    |       |
+| email   | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table studentsbasicinfo add column (class varchar(5), grade  varchar(2));
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe studentsbasicinfo;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | YES  |     | NULL    |       |
+| name    | varchar(50) | YES  |     | NULL    |       |
+| phone   | varchar(10) | YES  |     | NULL    |       |
+| address | varchar(50) | YES  |     | NULL    |       |
+| email   | varchar(50) | YES  |     | NULL    |       |
+| class   | varchar(5)  | YES  |     | NULL    |       |
+| grade   | varchar(2)  | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table studentsbasicinfo modify email varchar(100);
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc studentsbasicinfo;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int          | YES  |     | NULL    |       |
+| name    | varchar(50)  | YES  |     | NULL    |       |
+| phone   | varchar(10)  | YES  |     | NULL    |       |
+| address | varchar(50)  | YES  |     | NULL    |       |
+| email   | varchar(100) | YES  |     | NULL    |       |
+| class   | varchar(5)   | YES  |     | NULL    |       |
+| grade   | varchar(2)   | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table studentsbasicinfo modify class int(2);
+Query OK, 0 rows affected, 1 warning (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc studentsbasicinfo;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int          | YES  |     | NULL    |       |
+| name    | varchar(50)  | YES  |     | NULL    |       |
+| phone   | varchar(10)  | YES  |     | NULL    |       |
+| address | varchar(50)  | YES  |     | NULL    |       |
+| email   | varchar(100) | YES  |     | NULL    |       |
+| class   | int          | YES  |     | NULL    |       |
+| grade   | varchar(2)   | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table studentsbasicinfo modify (id varchar(10), name varchar(100), class varchar(100));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(id varchar(10), name varchar(100), class varchar(100))' at line 1
+mysql> alter table studentsbasicinfo modify id varchar(10), modify name varchar(100),modify class varchar(100);
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc studentsbascinfo;
+ERROR 1146 (42S02): Table 'practice.studentsbascinfo' doesn't exist
+mysql> desc studentsbasicinfo;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | varchar(10)  | YES  |     | NULL    |       |
+| name    | varchar(100) | YES  |     | NULL    |       |
+| phone   | varchar(10)  | YES  |     | NULL    |       |
+| address | varchar(50)  | YES  |     | NULL    |       |
+| email   | varchar(100) | YES  |     | NULL    |       |
+| class   | varchar(100) | YES  |     | NULL    |       |
+| grade   | varchar(2)   | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table studentsbasicinfo drop email;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc studentsbascinfo;
+ERROR 1146 (42S02): Table 'practice.studentsbascinfo' doesn't exist
+mysql> desc studentsbasicinfo;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | varchar(10)  | YES  |     | NULL    |       |
+| name    | varchar(100) | YES  |     | NULL    |       |
+| phone   | varchar(10)  | YES  |     | NULL    |       |
+| address | varchar(50)  | YES  |     | NULL    |       |
+| class   | varchar(100) | YES  |     | NULL    |       |
+| grade   | varchar(2)   | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table studentsbasicinfo drop grade varchar(2);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'varchar(2)' at line 1
+mysql> alter table studentsbasicinfo rename column id to sid;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc studentsbasicinfo;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| sid     | varchar(10)  | YES  |     | NULL    |       |
+| name    | varchar(100) | YES  |     | NULL    |       |
+| phone   | varchar(10)  | YES  |     | NULL    |       |
+| address | varchar(50)  | YES  |     | NULL    |       |
+| class   | varchar(100) | YES  |     | NULL    |       |
+| grade   | varchar(2)   | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> insert into studentsbasicinfo values("101","abc","9999999999","Pune","7","A");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from studentsbasicinfo;
++------+------+------------+---------+-------+-------+
+| sid  | name | phone      | address | class | grade |
++------+------+------------+---------+-------+-------+
+| 101  | abc  | 9999999999 | Pune    | 7     | A     |
++------+------+------------+---------+-------+-------+
+1 row in set (0.00 sec)
+
+mysql> truncate studentsbasicinfo;
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> select * from studentsbasicinfo;
+Empty set (0.00 sec)
+
+mysql> describe studentbasicinfo;
+ERROR 1146 (42S02): Table 'practice.studentbasicinfo' doesn't exist
+mysql> describe studentsbasicinfo;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| sid     | varchar(10)  | YES  |     | NULL    |       |
+| name    | varchar(100) | YES  |     | NULL    |       |
+| phone   | varchar(10)  | YES  |     | NULL    |       |
+| address | varchar(50)  | YES  |     | NULL    |       |
+| class   | varchar(100) | YES  |     | NULL    |       |
+| grade   | varchar(2)   | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> drop table studentsbasicinfo;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show tables;
+Empty set (0.00 sec)
