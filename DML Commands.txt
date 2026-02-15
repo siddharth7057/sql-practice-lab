@@ -1,0 +1,180 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| practice           |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use practice;
+Database changed
+mysql> create table employee(eid int(5),name varchar(50), phone varchar(50),email varchar(50),address varchar(50));
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+mysql> desc employee;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| eid     | int         | YES  |     | NULL    |       |
+| name    | varchar(50) | YES  |     | NULL    |       |
+| phone   | varchar(50) | YES  |     | NULL    |       |
+| email   | varchar(50) | YES  |     | NULL    |       |
+| address | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into employee values(101, "abc","9999999999","abc@gmail.com","Pune");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values(102,"pqr","9090909090","pqr@gmail.com","Satara");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values(103,"lmn","9090909090","lmn@gmail.com","Sangli");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee(eid,name) values(104,"xyz");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee(eid,name) values(105,"def");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee(eid,name) values(106,lkj");
+    ">
+    ">
+    "> ^C
+mysql> insert into employee(eid,name) values(106,lkj");
+    "> insert into employee(eid,name) values(106,"lkj");
+    "> ^C
+mysql> ^C
+mysql> insert into employee(eid,name) values(106,"lkj");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee(eid, name) values(107,"ukg");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from employee;
++------+------+------------+---------------+---------+
+| eid  | name | phone      | email         | address |
++------+------+------------+---------------+---------+
+|  101 | abc  | 9999999999 | abc@gmail.com | Pune    |
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara  |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli  |
+|  104 | xyz  | NULL       | NULL          | NULL    |
+|  105 | def  | NULL       | NULL          | NULL    |
+|  106 | lkj  | NULL       | NULL          | NULL    |
+|  107 | ukg  | NULL       | NULL          | NULL    |
++------+------+------------+---------------+---------+
+7 rows in set (0.00 sec)
+
+mysql> delete from employee;
+Query OK, 7 rows affected (0.01 sec)
+
+mysql> select * from employee;
+Empty set (0.00 sec)
+
+mysql> desc employee;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| eid     | int         | YES  |     | NULL    |       |
+| name    | varchar(50) | YES  |     | NULL    |       |
+| phone   | varchar(50) | YES  |     | NULL    |       |
+| email   | varchar(50) | YES  |     | NULL    |       |
+| address | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into employee values(101, "abc","9999999999","abc@gmail.com","Pune");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values(102,"pqr","9090909090","pqr@gmail.com","Satara");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values(103,"lmn","9090909090","lmn@gmail.com","Sangli");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee(eid,name) values(104,"xyz");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee(eid,name) values(105,"def");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee(eid,name) values(106,lkj");
+    "> ^C
+mysql> insert into employee(eid,name) values(106,"lkj");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee(eid, name) values(107,"ukg");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from employee;
++------+------+------------+---------------+---------+
+| eid  | name | phone      | email         | address |
++------+------+------------+---------------+---------+
+|  101 | abc  | 9999999999 | abc@gmail.com | Pune    |
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara  |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli  |
+|  104 | xyz  | NULL       | NULL          | NULL    |
+|  105 | def  | NULL       | NULL          | NULL    |
+|  106 | lkj  | NULL       | NULL          | NULL    |
+|  107 | ukg  | NULL       | NULL          | NULL    |
++------+------+------------+---------------+---------+
+7 rows in set (0.01 sec)
+
+mysql> delete from employee where eid = 101;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from employee;
++------+------+------------+---------------+---------+
+| eid  | name | phone      | email         | address |
++------+------+------------+---------------+---------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara  |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli  |
+|  104 | xyz  | NULL       | NULL          | NULL    |
+|  105 | def  | NULL       | NULL          | NULL    |
+|  106 | lkj  | NULL       | NULL          | NULL    |
+|  107 | ukg  | NULL       | NULL          | NULL    |
++------+------+------------+---------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> update table employee set phone = "9090909090";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table employee set phone = "9090909090"' at line 1
+mysql> update employee set phone = "9090909090";
+Query OK, 4 rows affected (0.01 sec)
+Rows matched: 6  Changed: 4  Warnings: 0
+
+mysql> select * from employee;
++------+------+------------+---------------+---------+
+| eid  | name | phone      | email         | address |
++------+------+------------+---------------+---------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara  |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli  |
+|  104 | xyz  | 9090909090 | NULL          | NULL    |
+|  105 | def  | 9090909090 | NULL          | NULL    |
+|  106 | lkj  | 9090909090 | NULL          | NULL    |
+|  107 | ukg  | 9090909090 | NULL          | NULL    |
++------+------+------------+---------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> update employee set email = "def@gmail.com" where name = "def";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+------+------------+---------------+---------+
+| eid  | name | phone      | email         | address |
++------+------+------------+---------------+---------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara  |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli  |
+|  104 | xyz  | 9090909090 | NULL          | NULL    |
+|  105 | def  | 9090909090 | def@gmail.com | NULL    |
+|  106 | lkj  | 9090909090 | NULL          | NULL    |
+|  107 | ukg  | 9090909090 | NULL          | NULL    |
++------+------+------------+---------------+---------+
+6 rows in set (0.00 sec)
+
+mysql>
