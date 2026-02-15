@@ -1,0 +1,54 @@
+
+mysql> select * from employee;
++------+------+------------+---------------+---------+
+| eid  | name | phone      | email         | address |
++------+------+------------+---------------+---------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara  |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli  |
+|  104 | xyz  | 9090909090 | NULL          | NULL    |
+|  105 | def  | 9090909090 | def@gmail.com | NULL    |
+|  106 | lkj  | 9090909090 | NULL          | NULL    |
+|  107 | ukg  | 9090909090 | NULL          | NULL    |
++------+------+------------+---------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select eid,name,phone,email,address from employee;
++------+------+------------+---------------+---------+
+| eid  | name | phone      | email         | address |
++------+------+------------+---------------+---------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara  |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli  |
+|  104 | xyz  | 9090909090 | NULL          | NULL    |
+|  105 | def  | 9090909090 | def@gmail.com | NULL    |
+|  106 | lkj  | 9090909090 | NULL          | NULL    |
+|  107 | ukg  | 9090909090 | NULL          | NULL    |
++------+------+------------+---------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select eid,name,phone,email from employee;
++------+------+------------+---------------+
+| eid  | name | phone      | email         |
++------+------+------------+---------------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com |
+|  103 | lmn  | 9090909090 | lmn@gmail.com |
+|  104 | xyz  | 9090909090 | NULL          |
+|  105 | def  | 9090909090 | def@gmail.com |
+|  106 | lkj  | 9090909090 | NULL          |
+|  107 | ukg  | 9090909090 | NULL          |
++------+------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> select eid, name from employee;
++------+------+
+| eid  | name |
++------+------+
+|  102 | pqr  |
+|  103 | lmn  |
+|  104 | xyz  |
+|  105 | def  |
+|  106 | lkj  |
+|  107 | ukg  |
++------+------+
+6 rows in set (0.00 sec)
+
+mysql>
