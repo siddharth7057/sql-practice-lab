@@ -1,0 +1,192 @@
+mysql> select * from employee;
++------+------+------------+---------------+---------+
+| eid  | name | phone      | email         | address |
++------+------+------------+---------------+---------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara  |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli  |
+|  104 | xyz  | 9090909090 | xyz@gmail.com | NULL    |
+|  105 | def  | 9090909090 | def@gmail.com | NULL    |
+|  106 | lkj  | 9090909090 | lkj@gmail.com | NULL    |
+|  107 | ukg  | 9090909090 | ukg@gmail.com | NULL    |
+|  101 | abc  | 9090909090 | abc@gmail.com | Pune    |
++------+------+------------+---------------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select * from employee where eid = 102;
++------+------+------------+---------------+---------+
+| eid  | name | phone      | email         | address |
++------+------+------------+---------------+---------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara  |
++------+------+------------+---------------+---------+
+1 row in set (0.00 sec)
+
+mysql> update employee set address = "Kolhapur" where eid = 104;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+------+------------+---------------+----------+
+| eid  | name | phone      | email         | address  |
++------+------+------------+---------------+----------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara   |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli   |
+|  104 | xyz  | 9090909090 | xyz@gmail.com | Kolhapur |
+|  105 | def  | 9090909090 | def@gmail.com | NULL     |
+|  106 | lkj  | 9090909090 | lkj@gmail.com | NULL     |
+|  107 | ukg  | 9090909090 | ukg@gmail.com | NULL     |
+|  101 | abc  | 9090909090 | abc@gmail.com | Pune     |
++------+------+------------+---------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> update employee set address = "Nanded" where eid = 105;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+------+------------+---------------+----------+
+| eid  | name | phone      | email         | address  |
++------+------+------------+---------------+----------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara   |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli   |
+|  104 | xyz  | 9090909090 | xyz@gmail.com | Kolhapur |
+|  105 | def  | 9090909090 | def@gmail.com | Nanded   |
+|  106 | lkj  | 9090909090 | lkj@gmail.com | NULL     |
+|  107 | ukg  | 9090909090 | ukg@gmail.com | NULL     |
+|  101 | abc  | 9090909090 | abc@gmail.com | Pune     |
++------+------+------------+---------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> update employee set address = "Satara" where eid = 106;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+------+------------+---------------+----------+
+| eid  | name | phone      | email         | address  |
++------+------+------------+---------------+----------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara   |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli   |
+|  104 | xyz  | 9090909090 | xyz@gmail.com | Kolhapur |
+|  105 | def  | 9090909090 | def@gmail.com | Nanded   |
+|  106 | lkj  | 9090909090 | lkj@gmail.com | Satara   |
+|  107 | ukg  | 9090909090 | ukg@gmail.com | NULL     |
+|  101 | abc  | 9090909090 | abc@gmail.com | Pune     |
++------+------+------------+---------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> update employee set address = "Nandurbar" where eid = 101;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+------+------------+---------------+-----------+
+| eid  | name | phone      | email         | address   |
++------+------+------------+---------------+-----------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara    |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli    |
+|  104 | xyz  | 9090909090 | xyz@gmail.com | Kolhapur  |
+|  105 | def  | 9090909090 | def@gmail.com | Nanded    |
+|  106 | lkj  | 9090909090 | lkj@gmail.com | Satara    |
+|  107 | ukg  | 9090909090 | ukg@gmail.com | NULL      |
+|  101 | abc  | 9090909090 | abc@gmail.com | Nandurbar |
++------+------+------------+---------------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> update employee set address = "Pune" where name = "abc";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+------+------------+---------------+----------+
+| eid  | name | phone      | email         | address  |
++------+------+------------+---------------+----------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara   |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli   |
+|  104 | xyz  | 9090909090 | xyz@gmail.com | Kolhapur |
+|  105 | def  | 9090909090 | def@gmail.com | Nanded   |
+|  106 | lkj  | 9090909090 | lkj@gmail.com | Satara   |
+|  107 | ukg  | 9090909090 | ukg@gmail.com | NULL     |
+|  101 | abc  | 9090909090 | abc@gmail.com | Pune     |
++------+------+------------+---------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> update employee set address = "Mumbai" where name = "lkj";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+------+------------+---------------+----------+
+| eid  | name | phone      | email         | address  |
++------+------+------------+---------------+----------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara   |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli   |
+|  104 | xyz  | 9090909090 | xyz@gmail.com | Kolhapur |
+|  105 | def  | 9090909090 | def@gmail.com | Nanded   |
+|  106 | lkj  | 9090909090 | lkj@gmail.com | Mumbai   |
+|  107 | ukg  | 9090909090 | ukg@gmail.com | NULL     |
+|  101 | abc  | 9090909090 | abc@gmail.com | Pune     |
++------+------+------------+---------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> update employee set name = "lkg" where name = "lkj";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+------+------------+---------------+----------+
+| eid  | name | phone      | email         | address  |
++------+------+------------+---------------+----------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara   |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli   |
+|  104 | xyz  | 9090909090 | xyz@gmail.com | Kolhapur |
+|  105 | def  | 9090909090 | def@gmail.com | Nanded   |
+|  106 | lkg  | 9090909090 | lkj@gmail.com | Mumbai   |
+|  107 | ukg  | 9090909090 | ukg@gmail.com | NULL     |
+|  101 | abc  | 9090909090 | abc@gmail.com | Pune     |
++------+------+------------+---------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> update employee set email = "lkg@gmail.com" where email = "lkj@gmail.com"
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+------+------------+---------------+----------+
+| eid  | name | phone      | email         | address  |
++------+------+------------+---------------+----------+
+|  102 | pqr  | 9090909090 | pqr@gmail.com | Satara   |
+|  103 | lmn  | 9090909090 | lmn@gmail.com | Sangli   |
+|  104 | xyz  | 9090909090 | xyz@gmail.com | Kolhapur |
+|  105 | def  | 9090909090 | def@gmail.com | Nanded   |
+|  106 | lkg  | 9090909090 | lkg@gmail.com | Mumbai   |
+|  107 | ukg  | 9090909090 | ukg@gmail.com | NULL     |
+|  101 | abc  | 9090909090 | abc@gmail.com | Pune     |
++------+------+------------+---------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> select eid from employee where name = "abc";
++------+
+| eid  |
++------+
+|  101 |
++------+
+1 row in set (0.00 sec)
+
+mysql> select eid, phone from employee where eid = 101;
++------+------------+
+| eid  | phone      |
++------+------------+
+|  101 | 9090909090 |
++------+------------+
+1 row in set (0.00 sec)
+
+mysql> select eid,name,phone,address from employee where address = "Satara";
++------+------+------------+---------+
+| eid  | name | phone      | address |
++------+------+------------+---------+
+|  102 | pqr  | 9090909090 | Satara  |
++------+------+------------+---------+
+1 row in set (0.00 sec)
+
+mysql>
