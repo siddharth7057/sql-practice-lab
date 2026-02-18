@@ -1,0 +1,297 @@
+mysql> CREATE TABLE player (
+    ->     Pid INT PRIMARY KEY AUTO_INCREMENT,
+    ->     Name VARCHAR(50) NOT NULL,
+    ->     Email VARCHAR(100) NOT NULL,
+    ->     Contact VARCHAR(15) NOT NULL,
+    ->     State VARCHAR(50) NOT NULL,
+    ->     RunRecord INT NOT NULL,
+    ->     Salary INT NOT NULL
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO player (Name, Email, Contact, State, RunRecord, Salary) VALUES
+    -> ('Amit Sharma','amit@gmail.com','9876543210','Maharashtra',2500,120000),
+    -> ('Rahul Patil','rahul@gmail.com','9876543211','Maharashtra',1800,90000),
+    -> ('Suresh Singh','suresh@gmail.com','9876543212','Punjab',3000,150000),
+    -> ('Vikram Gupta','vikram@gmail.com','9876543213','Gujrat',2200,110000),
+    -> ('Rohit Mehra','rohit@gmail.com','9876543214','Delhi',5000,200000),
+    -> ('Karan Desai','karan@gmail.com','9876543215','Gujrat',1200,80000),
+    -> ('Anil Verma','anil@gmail.com','9876543216','Punjab',2600,140000),
+    -> ('Deepak Joshi','deepak@gmail.com','9876543217','Maharashtra',3500,170000),
+    -> ('Manish Shah','manish@gmail.com','9876543218','Delhi',800,60000),
+    -> ('Arjun Nair','arjun@gmail.com','9876543219','Kerala',4000,190000),
+    -> ('Ravi Kumar','ravi@gmail.com','9876543220','Maharashtra',6000,210000),
+    -> ('Pankaj Yadav','pankaj@gmail.com','9876543221','UP',1500,75000),
+    -> ('Sanjay Kulkarni','sanjay@gmail.com','9876543222','Maharashtra',2100,115000),
+    -> ('Harsh Patel','harsh@gmail.com','9876543223','Gujrat',2800,160000),
+    -> ('Nitin Sharma','nitin@gmail.com','9876543224','Delhi',900,65000),
+    -> ('Ajay Singh','ajay@gmail.com','9876543225','Punjab',7000,230000),
+    -> ('Mohit Jain','mohit@gmail.com','9876543226','Rajasthan',1300,70000),
+    -> ('Yash Thakur','yash@gmail.com','9876543227','Punjab',2400,125000),
+    -> ('Neeraj Kumar','neeraj@gmail.com','9876543228','Bihar',1700,85000),
+    -> ('Pratik Pawar','pratik@gmail.com','9876543229','Maharashtra',4500,195000),
+    -> ('Tejas Patil','tejas@gmail.com','9876543230','Maharashtra',1900,95000),
+    -> ('Akash Singh','akash@gmail.com','9876543231','Delhi',3200,155000),
+    -> ('Jay Shah','jay@gmail.com','9876543232','Gujrat',2700,145000),
+    -> ('Ritesh Gupta','ritesh@gmail.com','9876543233','UP',1100,72000),
+    -> ('Sumit Kumar','sumit@gmail.com','9876543234','Punjab',2300,118000),
+    -> ('Varun Mehta','varun@gmail.com','9876543235','Delhi',5200,205000),
+    -> ('Kunal Patil','kunal@gmail.com','9876543236','Maharashtra',8000,250000),
+    -> ('Abhishek Singh','abhishek@gmail.com','9876543237','UP',9000,260000),
+    -> ('Siddharth Deshmukh','sid@gmail.com','9876543238','Maharashtra',2050,112000),
+    -> ('Rohan Gupta','rohan@gmail.com','9876543239','Gujrat',3300,165000);
+Query OK, 30 rows affected (0.01 sec)
+Records: 30  Duplicates: 0  Warnings: 0
+
+mysql> select * from player;
++-----+--------------------+--------------------+------------+-------------+-----------+--------+
+| Pid | Name               | Email              | Contact    | State       | RunRecord | Salary |
++-----+--------------------+--------------------+------------+-------------+-----------+--------+
+|   1 | Amit Sharma        | amit@gmail.com     | 9876543210 | Maharashtra |      2500 | 120000 |
+|   2 | Rahul Patil        | rahul@gmail.com    | 9876543211 | Maharashtra |      1800 |  90000 |
+|   3 | Suresh Singh       | suresh@gmail.com   | 9876543212 | Punjab      |      3000 | 150000 |
+|   4 | Vikram Gupta       | vikram@gmail.com   | 9876543213 | Gujrat      |      2200 | 110000 |
+|   5 | Rohit Mehra        | rohit@gmail.com    | 9876543214 | Delhi       |      5000 | 200000 |
+|   6 | Karan Desai        | karan@gmail.com    | 9876543215 | Gujrat      |      1200 |  80000 |
+|   7 | Anil Verma         | anil@gmail.com     | 9876543216 | Punjab      |      2600 | 140000 |
+|   8 | Deepak Joshi       | deepak@gmail.com   | 9876543217 | Maharashtra |      3500 | 170000 |
+|   9 | Manish Shah        | manish@gmail.com   | 9876543218 | Delhi       |       800 |  60000 |
+|  10 | Arjun Nair         | arjun@gmail.com    | 9876543219 | Kerala      |      4000 | 190000 |
+|  11 | Ravi Kumar         | ravi@gmail.com     | 9876543220 | Maharashtra |      6000 | 210000 |
+|  12 | Pankaj Yadav       | pankaj@gmail.com   | 9876543221 | UP          |      1500 |  75000 |
+|  13 | Sanjay Kulkarni    | sanjay@gmail.com   | 9876543222 | Maharashtra |      2100 | 115000 |
+|  14 | Harsh Patel        | harsh@gmail.com    | 9876543223 | Gujrat      |      2800 | 160000 |
+|  15 | Nitin Sharma       | nitin@gmail.com    | 9876543224 | Delhi       |       900 |  65000 |
+|  16 | Ajay Singh         | ajay@gmail.com     | 9876543225 | Punjab      |      7000 | 230000 |
+|  17 | Mohit Jain         | mohit@gmail.com    | 9876543226 | Rajasthan   |      1300 |  70000 |
+|  18 | Yash Thakur        | yash@gmail.com     | 9876543227 | Punjab      |      2400 | 125000 |
+|  19 | Neeraj Kumar       | neeraj@gmail.com   | 9876543228 | Bihar       |      1700 |  85000 |
+|  20 | Pratik Pawar       | pratik@gmail.com   | 9876543229 | Maharashtra |      4500 | 195000 |
+|  21 | Tejas Patil        | tejas@gmail.com    | 9876543230 | Maharashtra |      1900 |  95000 |
+|  22 | Akash Singh        | akash@gmail.com    | 9876543231 | Delhi       |      3200 | 155000 |
+|  23 | Jay Shah           | jay@gmail.com      | 9876543232 | Gujrat      |      2700 | 145000 |
+|  24 | Ritesh Gupta       | ritesh@gmail.com   | 9876543233 | UP          |      1100 |  72000 |
+|  25 | Sumit Kumar        | sumit@gmail.com    | 9876543234 | Punjab      |      2300 | 118000 |
+|  26 | Varun Mehta        | varun@gmail.com    | 9876543235 | Delhi       |      5200 | 205000 |
+|  27 | Kunal Patil        | kunal@gmail.com    | 9876543236 | Maharashtra |      8000 | 250000 |
+|  28 | Abhishek Singh     | abhishek@gmail.com | 9876543237 | UP          |      9000 | 260000 |
+|  29 | Siddharth Deshmukh | sid@gmail.com      | 9876543238 | Maharashtra |      2050 | 112000 |
+|  30 | Rohan Gupta        | rohan@gmail.com    | 9876543239 | Gujrat      |      3300 | 165000 |
++-----+--------------------+--------------------+------------+-------------+-----------+--------+
+30 rows in set (0.00 sec)
+
+mysql> select * from player where state = "Maharashtra";
++-----+--------------------+------------------+------------+-------------+-----------+--------+
+| Pid | Name               | Email            | Contact    | State       | RunRecord | Salary |
++-----+--------------------+------------------+------------+-------------+-----------+--------+
+|   1 | Amit Sharma        | amit@gmail.com   | 9876543210 | Maharashtra |      2500 | 120000 |
+|   2 | Rahul Patil        | rahul@gmail.com  | 9876543211 | Maharashtra |      1800 |  90000 |
+|   8 | Deepak Joshi       | deepak@gmail.com | 9876543217 | Maharashtra |      3500 | 170000 |
+|  11 | Ravi Kumar         | ravi@gmail.com   | 9876543220 | Maharashtra |      6000 | 210000 |
+|  13 | Sanjay Kulkarni    | sanjay@gmail.com | 9876543222 | Maharashtra |      2100 | 115000 |
+|  20 | Pratik Pawar       | pratik@gmail.com | 9876543229 | Maharashtra |      4500 | 195000 |
+|  21 | Tejas Patil        | tejas@gmail.com  | 9876543230 | Maharashtra |      1900 |  95000 |
+|  27 | Kunal Patil        | kunal@gmail.com  | 9876543236 | Maharashtra |      8000 | 250000 |
+|  29 | Siddharth Deshmukh | sid@gmail.com    | 9876543238 | Maharashtra |      2050 | 112000 |
++-----+--------------------+------------------+------------+-------------+-----------+--------+
+9 rows in set (0.00 sec)
+
+mysql> select * from player where state in("Maharashtra","Punjab","Gujrat","Delhi");
++-----+--------------------+------------------+------------+-------------+-----------+--------+
+| Pid | Name               | Email            | Contact    | State       | RunRecord | Salary |
++-----+--------------------+------------------+------------+-------------+-----------+--------+
+|   1 | Amit Sharma        | amit@gmail.com   | 9876543210 | Maharashtra |      2500 | 120000 |
+|   2 | Rahul Patil        | rahul@gmail.com  | 9876543211 | Maharashtra |      1800 |  90000 |
+|   3 | Suresh Singh       | suresh@gmail.com | 9876543212 | Punjab      |      3000 | 150000 |
+|   4 | Vikram Gupta       | vikram@gmail.com | 9876543213 | Gujrat      |      2200 | 110000 |
+|   5 | Rohit Mehra        | rohit@gmail.com  | 9876543214 | Delhi       |      5000 | 200000 |
+|   6 | Karan Desai        | karan@gmail.com  | 9876543215 | Gujrat      |      1200 |  80000 |
+|   7 | Anil Verma         | anil@gmail.com   | 9876543216 | Punjab      |      2600 | 140000 |
+|   8 | Deepak Joshi       | deepak@gmail.com | 9876543217 | Maharashtra |      3500 | 170000 |
+|   9 | Manish Shah        | manish@gmail.com | 9876543218 | Delhi       |       800 |  60000 |
+|  11 | Ravi Kumar         | ravi@gmail.com   | 9876543220 | Maharashtra |      6000 | 210000 |
+|  13 | Sanjay Kulkarni    | sanjay@gmail.com | 9876543222 | Maharashtra |      2100 | 115000 |
+|  14 | Harsh Patel        | harsh@gmail.com  | 9876543223 | Gujrat      |      2800 | 160000 |
+|  15 | Nitin Sharma       | nitin@gmail.com  | 9876543224 | Delhi       |       900 |  65000 |
+|  16 | Ajay Singh         | ajay@gmail.com   | 9876543225 | Punjab      |      7000 | 230000 |
+|  18 | Yash Thakur        | yash@gmail.com   | 9876543227 | Punjab      |      2400 | 125000 |
+|  20 | Pratik Pawar       | pratik@gmail.com | 9876543229 | Maharashtra |      4500 | 195000 |
+|  21 | Tejas Patil        | tejas@gmail.com  | 9876543230 | Maharashtra |      1900 |  95000 |
+|  22 | Akash Singh        | akash@gmail.com  | 9876543231 | Delhi       |      3200 | 155000 |
+|  23 | Jay Shah           | jay@gmail.com    | 9876543232 | Gujrat      |      2700 | 145000 |
+|  25 | Sumit Kumar        | sumit@gmail.com  | 9876543234 | Punjab      |      2300 | 118000 |
+|  26 | Varun Mehta        | varun@gmail.com  | 9876543235 | Delhi       |      5200 | 205000 |
+|  27 | Kunal Patil        | kunal@gmail.com  | 9876543236 | Maharashtra |      8000 | 250000 |
+|  29 | Siddharth Deshmukh | sid@gmail.com    | 9876543238 | Maharashtra |      2050 | 112000 |
+|  30 | Rohan Gupta        | rohan@gmail.com  | 9876543239 | Gujrat      |      3300 | 165000 |
++-----+--------------------+------------------+------------+-------------+-----------+--------+
+24 rows in set (0.00 sec)
+
+mysql> select * from player order by RunRecord desc;
++-----+--------------------+--------------------+------------+-------------+-----------+--------+
+| Pid | Name               | Email              | Contact    | State       | RunRecord | Salary |
++-----+--------------------+--------------------+------------+-------------+-----------+--------+
+|  28 | Abhishek Singh     | abhishek@gmail.com | 9876543237 | UP          |      9000 | 260000 |
+|  27 | Kunal Patil        | kunal@gmail.com    | 9876543236 | Maharashtra |      8000 | 250000 |
+|  16 | Ajay Singh         | ajay@gmail.com     | 9876543225 | Punjab      |      7000 | 230000 |
+|  11 | Ravi Kumar         | ravi@gmail.com     | 9876543220 | Maharashtra |      6000 | 210000 |
+|  26 | Varun Mehta        | varun@gmail.com    | 9876543235 | Delhi       |      5200 | 205000 |
+|   5 | Rohit Mehra        | rohit@gmail.com    | 9876543214 | Delhi       |      5000 | 200000 |
+|  20 | Pratik Pawar       | pratik@gmail.com   | 9876543229 | Maharashtra |      4500 | 195000 |
+|  10 | Arjun Nair         | arjun@gmail.com    | 9876543219 | Kerala      |      4000 | 190000 |
+|   8 | Deepak Joshi       | deepak@gmail.com   | 9876543217 | Maharashtra |      3500 | 170000 |
+|  30 | Rohan Gupta        | rohan@gmail.com    | 9876543239 | Gujrat      |      3300 | 165000 |
+|  22 | Akash Singh        | akash@gmail.com    | 9876543231 | Delhi       |      3200 | 155000 |
+|   3 | Suresh Singh       | suresh@gmail.com   | 9876543212 | Punjab      |      3000 | 150000 |
+|  14 | Harsh Patel        | harsh@gmail.com    | 9876543223 | Gujrat      |      2800 | 160000 |
+|  23 | Jay Shah           | jay@gmail.com      | 9876543232 | Gujrat      |      2700 | 145000 |
+|   7 | Anil Verma         | anil@gmail.com     | 9876543216 | Punjab      |      2600 | 140000 |
+|   1 | Amit Sharma        | amit@gmail.com     | 9876543210 | Maharashtra |      2500 | 120000 |
+|  18 | Yash Thakur        | yash@gmail.com     | 9876543227 | Punjab      |      2400 | 125000 |
+|  25 | Sumit Kumar        | sumit@gmail.com    | 9876543234 | Punjab      |      2300 | 118000 |
+|   4 | Vikram Gupta       | vikram@gmail.com   | 9876543213 | Gujrat      |      2200 | 110000 |
+|  13 | Sanjay Kulkarni    | sanjay@gmail.com   | 9876543222 | Maharashtra |      2100 | 115000 |
+|  29 | Siddharth Deshmukh | sid@gmail.com      | 9876543238 | Maharashtra |      2050 | 112000 |
+|  21 | Tejas Patil        | tejas@gmail.com    | 9876543230 | Maharashtra |      1900 |  95000 |
+|   2 | Rahul Patil        | rahul@gmail.com    | 9876543211 | Maharashtra |      1800 |  90000 |
+|  19 | Neeraj Kumar       | neeraj@gmail.com   | 9876543228 | Bihar       |      1700 |  85000 |
+|  12 | Pankaj Yadav       | pankaj@gmail.com   | 9876543221 | UP          |      1500 |  75000 |
+|  17 | Mohit Jain         | mohit@gmail.com    | 9876543226 | Rajasthan   |      1300 |  70000 |
+|   6 | Karan Desai        | karan@gmail.com    | 9876543215 | Gujrat      |      1200 |  80000 |
+|  24 | Ritesh Gupta       | ritesh@gmail.com   | 9876543233 | UP          |      1100 |  72000 |
+|  15 | Nitin Sharma       | nitin@gmail.com    | 9876543224 | Delhi       |       900 |  65000 |
+|   9 | Manish Shah        | manish@gmail.com   | 9876543218 | Delhi       |       800 |  60000 |
++-----+--------------------+--------------------+------------+-------------+-----------+--------+
+30 rows in set (0.00 sec)
+
+mysql> select * from player where State = "Maharashtra" and RunRecord > 2000;
++-----+--------------------+------------------+------------+-------------+-----------+--------+
+| Pid | Name               | Email            | Contact    | State       | RunRecord | Salary |
++-----+--------------------+------------------+------------+-------------+-----------+--------+
+|   1 | Amit Sharma        | amit@gmail.com   | 9876543210 | Maharashtra |      2500 | 120000 |
+|   8 | Deepak Joshi       | deepak@gmail.com | 9876543217 | Maharashtra |      3500 | 170000 |
+|  11 | Ravi Kumar         | ravi@gmail.com   | 9876543220 | Maharashtra |      6000 | 210000 |
+|  13 | Sanjay Kulkarni    | sanjay@gmail.com | 9876543222 | Maharashtra |      2100 | 115000 |
+|  20 | Pratik Pawar       | pratik@gmail.com | 9876543229 | Maharashtra |      4500 | 195000 |
+|  27 | Kunal Patil        | kunal@gmail.com  | 9876543236 | Maharashtra |      8000 | 250000 |
+|  29 | Siddharth Deshmukh | sid@gmail.com    | 9876543238 | Maharashtra |      2050 | 112000 |
++-----+--------------------+------------------+------------+-------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from player where State = "Maharashtra" and RunRecord  between 2000 and 20000 order by RunRecord desc;
++-----+--------------------+------------------+------------+-------------+-----------+--------+
+| Pid | Name               | Email            | Contact    | State       | RunRecord | Salary |
++-----+--------------------+------------------+------------+-------------+-----------+--------+
+|  27 | Kunal Patil        | kunal@gmail.com  | 9876543236 | Maharashtra |      8000 | 250000 |
+|  11 | Ravi Kumar         | ravi@gmail.com   | 9876543220 | Maharashtra |      6000 | 210000 |
+|  20 | Pratik Pawar       | pratik@gmail.com | 9876543229 | Maharashtra |      4500 | 195000 |
+|   8 | Deepak Joshi       | deepak@gmail.com | 9876543217 | Maharashtra |      3500 | 170000 |
+|   1 | Amit Sharma        | amit@gmail.com   | 9876543210 | Maharashtra |      2500 | 120000 |
+|  13 | Sanjay Kulkarni    | sanjay@gmail.com | 9876543222 | Maharashtra |      2100 | 115000 |
+|  29 | Siddharth Deshmukh | sid@gmail.com    | 9876543238 | Maharashtra |      2050 | 112000 |
++-----+--------------------+------------------+------------+-------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from player where not state = "Maharashtra";
++-----+----------------+--------------------+------------+-----------+-----------+--------+
+| Pid | Name           | Email              | Contact    | State     | RunRecord | Salary |
++-----+----------------+--------------------+------------+-----------+-----------+--------+
+|   3 | Suresh Singh   | suresh@gmail.com   | 9876543212 | Punjab    |      3000 | 150000 |
+|   4 | Vikram Gupta   | vikram@gmail.com   | 9876543213 | Gujrat    |      2200 | 110000 |
+|   5 | Rohit Mehra    | rohit@gmail.com    | 9876543214 | Delhi     |      5000 | 200000 |
+|   6 | Karan Desai    | karan@gmail.com    | 9876543215 | Gujrat    |      1200 |  80000 |
+|   7 | Anil Verma     | anil@gmail.com     | 9876543216 | Punjab    |      2600 | 140000 |
+|   9 | Manish Shah    | manish@gmail.com   | 9876543218 | Delhi     |       800 |  60000 |
+|  10 | Arjun Nair     | arjun@gmail.com    | 9876543219 | Kerala    |      4000 | 190000 |
+|  12 | Pankaj Yadav   | pankaj@gmail.com   | 9876543221 | UP        |      1500 |  75000 |
+|  14 | Harsh Patel    | harsh@gmail.com    | 9876543223 | Gujrat    |      2800 | 160000 |
+|  15 | Nitin Sharma   | nitin@gmail.com    | 9876543224 | Delhi     |       900 |  65000 |
+|  16 | Ajay Singh     | ajay@gmail.com     | 9876543225 | Punjab    |      7000 | 230000 |
+|  17 | Mohit Jain     | mohit@gmail.com    | 9876543226 | Rajasthan |      1300 |  70000 |
+|  18 | Yash Thakur    | yash@gmail.com     | 9876543227 | Punjab    |      2400 | 125000 |
+|  19 | Neeraj Kumar   | neeraj@gmail.com   | 9876543228 | Bihar     |      1700 |  85000 |
+|  22 | Akash Singh    | akash@gmail.com    | 9876543231 | Delhi     |      3200 | 155000 |
+|  23 | Jay Shah       | jay@gmail.com      | 9876543232 | Gujrat    |      2700 | 145000 |
+|  24 | Ritesh Gupta   | ritesh@gmail.com   | 9876543233 | UP        |      1100 |  72000 |
+|  25 | Sumit Kumar    | sumit@gmail.com    | 9876543234 | Punjab    |      2300 | 118000 |
+|  26 | Varun Mehta    | varun@gmail.com    | 9876543235 | Delhi     |      5200 | 205000 |
+|  28 | Abhishek Singh | abhishek@gmail.com | 9876543237 | UP        |      9000 | 260000 |
+|  30 | Rohan Gupta    | rohan@gmail.com    | 9876543239 | Gujrat    |      3300 | 165000 |
++-----+----------------+--------------------+------------+-----------+-----------+--------+
+21 rows in set (0.00 sec)
+
+mysql> select * from player where state<>"Maharashtra";
++-----+----------------+--------------------+------------+-----------+-----------+--------+
+| Pid | Name           | Email              | Contact    | State     | RunRecord | Salary |
++-----+----------------+--------------------+------------+-----------+-----------+--------+
+|   3 | Suresh Singh   | suresh@gmail.com   | 9876543212 | Punjab    |      3000 | 150000 |
+|   4 | Vikram Gupta   | vikram@gmail.com   | 9876543213 | Gujrat    |      2200 | 110000 |
+|   5 | Rohit Mehra    | rohit@gmail.com    | 9876543214 | Delhi     |      5000 | 200000 |
+|   6 | Karan Desai    | karan@gmail.com    | 9876543215 | Gujrat    |      1200 |  80000 |
+|   7 | Anil Verma     | anil@gmail.com     | 9876543216 | Punjab    |      2600 | 140000 |
+|   9 | Manish Shah    | manish@gmail.com   | 9876543218 | Delhi     |       800 |  60000 |
+|  10 | Arjun Nair     | arjun@gmail.com    | 9876543219 | Kerala    |      4000 | 190000 |
+|  12 | Pankaj Yadav   | pankaj@gmail.com   | 9876543221 | UP        |      1500 |  75000 |
+|  14 | Harsh Patel    | harsh@gmail.com    | 9876543223 | Gujrat    |      2800 | 160000 |
+|  15 | Nitin Sharma   | nitin@gmail.com    | 9876543224 | Delhi     |       900 |  65000 |
+|  16 | Ajay Singh     | ajay@gmail.com     | 9876543225 | Punjab    |      7000 | 230000 |
+|  17 | Mohit Jain     | mohit@gmail.com    | 9876543226 | Rajasthan |      1300 |  70000 |
+|  18 | Yash Thakur    | yash@gmail.com     | 9876543227 | Punjab    |      2400 | 125000 |
+|  19 | Neeraj Kumar   | neeraj@gmail.com   | 9876543228 | Bihar     |      1700 |  85000 |
+|  22 | Akash Singh    | akash@gmail.com    | 9876543231 | Delhi     |      3200 | 155000 |
+|  23 | Jay Shah       | jay@gmail.com      | 9876543232 | Gujrat    |      2700 | 145000 |
+|  24 | Ritesh Gupta   | ritesh@gmail.com   | 9876543233 | UP        |      1100 |  72000 |
+|  25 | Sumit Kumar    | sumit@gmail.com    | 9876543234 | Punjab    |      2300 | 118000 |
+|  26 | Varun Mehta    | varun@gmail.com    | 9876543235 | Delhi     |      5200 | 205000 |
+|  28 | Abhishek Singh | abhishek@gmail.com | 9876543237 | UP        |      9000 | 260000 |
+|  30 | Rohan Gupta    | rohan@gmail.com    | 9876543239 | Gujrat    |      3300 | 165000 |
++-----+----------------+--------------------+------------+-----------+-----------+--------+
+21 rows in set (0.00 sec)
+
+mysql> select * from player where state not in("Maharashtra","Punjab","Delhi");
++-----+----------------+--------------------+------------+-----------+-----------+--------+
+| Pid | Name           | Email              | Contact    | State     | RunRecord | Salary |
++-----+----------------+--------------------+------------+-----------+-----------+--------+
+|   4 | Vikram Gupta   | vikram@gmail.com   | 9876543213 | Gujrat    |      2200 | 110000 |
+|   6 | Karan Desai    | karan@gmail.com    | 9876543215 | Gujrat    |      1200 |  80000 |
+|  10 | Arjun Nair     | arjun@gmail.com    | 9876543219 | Kerala    |      4000 | 190000 |
+|  12 | Pankaj Yadav   | pankaj@gmail.com   | 9876543221 | UP        |      1500 |  75000 |
+|  14 | Harsh Patel    | harsh@gmail.com    | 9876543223 | Gujrat    |      2800 | 160000 |
+|  17 | Mohit Jain     | mohit@gmail.com    | 9876543226 | Rajasthan |      1300 |  70000 |
+|  19 | Neeraj Kumar   | neeraj@gmail.com   | 9876543228 | Bihar     |      1700 |  85000 |
+|  23 | Jay Shah       | jay@gmail.com      | 9876543232 | Gujrat    |      2700 | 145000 |
+|  24 | Ritesh Gupta   | ritesh@gmail.com   | 9876543233 | UP        |      1100 |  72000 |
+|  28 | Abhishek Singh | abhishek@gmail.com | 9876543237 | UP        |      9000 | 260000 |
+|  30 | Rohan Gupta    | rohan@gmail.com    | 9876543239 | Gujrat    |      3300 | 165000 |
++-----+----------------+--------------------+------------+-----------+-----------+--------+
+11 rows in set (0.00 sec)
+
+mysql> select * from player  wherr runrecord > 2000 and salary > 100000 order by runrecord desc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'runrecord > 2000 and salary > 100000 order by runrecord desc' at line 1
+mysql> select * from player  where runrecord > 2000 and salary > 100000 order by runrecord desc;
++-----+--------------------+--------------------+------------+-------------+-----------+--------+
+| Pid | Name               | Email              | Contact    | State       | RunRecord | Salary |
++-----+--------------------+--------------------+------------+-------------+-----------+--------+
+|  28 | Abhishek Singh     | abhishek@gmail.com | 9876543237 | UP          |      9000 | 260000 |
+|  27 | Kunal Patil        | kunal@gmail.com    | 9876543236 | Maharashtra |      8000 | 250000 |
+|  16 | Ajay Singh         | ajay@gmail.com     | 9876543225 | Punjab      |      7000 | 230000 |
+|  11 | Ravi Kumar         | ravi@gmail.com     | 9876543220 | Maharashtra |      6000 | 210000 |
+|  26 | Varun Mehta        | varun@gmail.com    | 9876543235 | Delhi       |      5200 | 205000 |
+|   5 | Rohit Mehra        | rohit@gmail.com    | 9876543214 | Delhi       |      5000 | 200000 |
+|  20 | Pratik Pawar       | pratik@gmail.com   | 9876543229 | Maharashtra |      4500 | 195000 |
+|  10 | Arjun Nair         | arjun@gmail.com    | 9876543219 | Kerala      |      4000 | 190000 |
+|   8 | Deepak Joshi       | deepak@gmail.com   | 9876543217 | Maharashtra |      3500 | 170000 |
+|  30 | Rohan Gupta        | rohan@gmail.com    | 9876543239 | Gujrat      |      3300 | 165000 |
+|  22 | Akash Singh        | akash@gmail.com    | 9876543231 | Delhi       |      3200 | 155000 |
+|   3 | Suresh Singh       | suresh@gmail.com   | 9876543212 | Punjab      |      3000 | 150000 |
+|  14 | Harsh Patel        | harsh@gmail.com    | 9876543223 | Gujrat      |      2800 | 160000 |
+|  23 | Jay Shah           | jay@gmail.com      | 9876543232 | Gujrat      |      2700 | 145000 |
+|   7 | Anil Verma         | anil@gmail.com     | 9876543216 | Punjab      |      2600 | 140000 |
+|   1 | Amit Sharma        | amit@gmail.com     | 9876543210 | Maharashtra |      2500 | 120000 |
+|  18 | Yash Thakur        | yash@gmail.com     | 9876543227 | Punjab      |      2400 | 125000 |
+|  25 | Sumit Kumar        | sumit@gmail.com    | 9876543234 | Punjab      |      2300 | 118000 |
+|   4 | Vikram Gupta       | vikram@gmail.com   | 9876543213 | Gujrat      |      2200 | 110000 |
+|  13 | Sanjay Kulkarni    | sanjay@gmail.com   | 9876543222 | Maharashtra |      2100 | 115000 |
+|  29 | Siddharth Deshmukh | sid@gmail.com      | 9876543238 | Maharashtra |      2050 | 112000 |
++-----+--------------------+--------------------+------------+-------------+-----------+--------+
+21 rows in set (0.00 sec)
