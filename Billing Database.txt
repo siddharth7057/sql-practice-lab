@@ -1,0 +1,441 @@
+Enter password: ************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 18
+Server version: 8.0.45 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database Billing;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> use Billing;
+Database changed
+mysql> create table Product(id int(5) primary key,
+    -> name varchar(50) not null,
+    -> price int(5) not null,
+    -> brand varchar(50) not null,
+    -> description varchar(50) not null);
+Query OK, 0 rows affected, 2 warnings (0.09 sec)
+
+mysql> desc Product;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| id          | int         | NO   | PRI | NULL    |       |
+| name        | varchar(50) | NO   |     | NULL    |       |
+| price       | int         | NO   |     | NULL    |       |
+| brand       | varchar(50) | NO   |     | NULL    |       |
+| description | varchar(50) | NO   |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+5 rows in set (0.04 sec)
+
+mysql> INSERT INTO Product VALUES
+    -> (1,'Biscuit',15,'TATA','food snack'),
+    -> (2,'Soap',25,'TATA','daily use product'),
+    -> (3,'Battery',120,'Reliance','electronic item'),
+    -> (4,'Pen',10,'Cello','stationery item'),
+    -> (5,'Pencil',5,'Cello','school stationery'),
+    -> (6,'Notebook',50,'Classmate','school item'),
+    -> (7,'Rubber',8,'Apsara','school item'),
+    -> (8,'Camera',500,'Sony','electronic gadget'),
+    -> (9,'Fan',90,'Bajaj','electronic appliance'),
+    -> (10,'Television',300,'Reliance','electronic device'),
+    -> (11,'Mobile',150,'Samsung','electronic gadget'),
+    -> (12,'Router',80,'TATA','electronic device'),
+    -> (13,'Printer',200,'HP','electronic device'),
+    -> (14,'Chocolatenia',20,'Nestle','food item'),
+    -> (15,'Bisconia',12,'TATA','food snack'),
+    -> (16,'Cornia',18,'Reliance','food item'),
+    -> (17,'Rice',60,'TATA','grocery item'),
+    -> (18,'Rope',30,'Local','utility item'),
+    -> (19,'Racket',70,'Yonex','sports item'),
+    -> (20,'Bottle',15,'Milton','kitchen item'),
+    -> (21,'Plate',25,'Milton','kitchen item'),
+    -> (22,'Bulb',40,'Philips','electronic accessory'),
+    -> (23,'Bread',12,'Britannia','food item'),
+    -> (24,'Butter',55,'Amul','food item'),
+    -> (25,'Pasta',18,'TATA','food item'),
+    -> (26,'Phone',200,'Reliance','electronic gadget'),
+    -> (27,'Radio',35,'Sony','electronic device'),
+    -> (28,'Refrigerator',400,'Samsung','electronic appliance'),
+    -> (29,'Projector',250,'Sony','electronic device'),
+    -> (30,'Powerbank',75,'Mi','electronic gadget');
+Query OK, 30 rows affected (0.01 sec)
+Records: 30  Duplicates: 0  Warnings: 0
+
+mysql> select * from Products;
+ERROR 1146 (42S02): Table 'billing.products' doesn't exist
+mysql> select * from Product;
++----+--------------+-------+-----------+----------------------+
+| id | name         | price | brand     | description          |
++----+--------------+-------+-----------+----------------------+
+|  1 | Biscuit      |    15 | TATA      | food snack           |
+|  2 | Soap         |    25 | TATA      | daily use product    |
+|  3 | Battery      |   120 | Reliance  | electronic item      |
+|  4 | Pen          |    10 | Cello     | stationery item      |
+|  5 | Pencil       |     5 | Cello     | school stationery    |
+|  6 | Notebook     |    50 | Classmate | school item          |
+|  7 | Rubber       |     8 | Apsara    | school item          |
+|  8 | Camera       |   500 | Sony      | electronic gadget    |
+|  9 | Fan          |    90 | Bajaj     | electronic appliance |
+| 10 | Television   |   300 | Reliance  | electronic device    |
+| 11 | Mobile       |   150 | Samsung   | electronic gadget    |
+| 12 | Router       |    80 | TATA      | electronic device    |
+| 13 | Printer      |   200 | HP        | electronic device    |
+| 14 | Chocolatenia |    20 | Nestle    | food item            |
+| 15 | Bisconia     |    12 | TATA      | food snack           |
+| 16 | Cornia       |    18 | Reliance  | food item            |
+| 17 | Rice         |    60 | TATA      | grocery item         |
+| 18 | Rope         |    30 | Local     | utility item         |
+| 19 | Racket       |    70 | Yonex     | sports item          |
+| 20 | Bottle       |    15 | Milton    | kitchen item         |
+| 21 | Plate        |    25 | Milton    | kitchen item         |
+| 22 | Bulb         |    40 | Philips   | electronic accessory |
+| 23 | Bread        |    12 | Britannia | food item            |
+| 24 | Butter       |    55 | Amul      | food item            |
+| 25 | Pasta        |    18 | TATA      | food item            |
+| 26 | Phone        |   200 | Reliance  | electronic gadget    |
+| 27 | Radio        |    35 | Sony      | electronic device    |
+| 28 | Refrigerator |   400 | Samsung   | electronic appliance |
+| 29 | Projector    |   250 | Sony      | electronic device    |
+| 30 | Powerbank    |    75 | Mi        | electronic gadget    |
++----+--------------+-------+-----------+----------------------+
+30 rows in set (0.01 sec)
+
+mysql> select name from Product where name like %b%;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%b%' at line 1
+mysql> select name from Product where name like '%b%';
++-----------+
+| name      |
++-----------+
+| Biscuit   |
+| Battery   |
+| Notebook  |
+| Rubber    |
+| Mobile    |
+| Bisconia  |
+| Bottle    |
+| Bulb      |
+| Bread     |
+| Butter    |
+| Powerbank |
++-----------+
+11 rows in set (0.01 sec)
+
+mysql> select name from Product where name like '%nia and price>10;
+    '> ^C
+mysql>
+mysql> select name from Product where name like '%nia' and price > 10;
++--------------+
+| name         |
++--------------+
+| Chocolatenia |
+| Bisconia     |
+| Cornia       |
++--------------+
+3 rows in set (0.00 sec)
+
+mysql> select name from Product where name like '%nia' && price > 10;
++--------------+
+| name         |
++--------------+
+| Chocolatenia |
+| Bisconia     |
+| Cornia       |
++--------------+
+3 rows in set, 1 warning (0.00 sec)
+
+mysql> select name from Product where name like 'p%' and price between 5 and 20;
++--------+
+| name   |
++--------+
+| Pen    |
+| Pencil |
+| Pasta  |
++--------+
+3 rows in set (0.01 sec)
+
+mysql> select name from Product where name like 'p%' and price >= 5 and price <=20;
++--------+
+| name   |
++--------+
+| Pen    |
+| Pencil |
+| Pasta  |
++--------+
+3 rows in set (0.00 sec)
+
+mysql> select name from Product where name like 'p%' && price >= 5 and price <=20;
++--------+
+| name   |
++--------+
+| Pen    |
+| Pencil |
+| Pasta  |
++--------+
+3 rows in set, 1 warning (0.00 sec)
+
+mysql> select count(*) where brand = "TATA";
+ERROR 1054 (42S22): Unknown column 'brand' in 'where clause'
+mysql> select count(*)  from Product where brand = "TATA";
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> select count(*)  from Product where brand = "Tata";
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from Product where price > 10 and price < 100 and name like 'r%';
++----------+
+| count(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select sum(price) from Product;
++------------+
+| sum(price) |
++------------+
+|       2888 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(price) from Product;
++------------+
+| avg(price) |
++------------+
+|    96.2667 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(price)/count(id) from Product;
++----------------------+
+| sum(price)/count(id) |
++----------------------+
+|              96.2667 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select min(price),max(price) from Product;
++------------+------------+
+| min(price) | max(price) |
++------------+------------+
+|          5 |        500 |
++------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from  Product where brand = "Reliance" or brand = "Tata";
++----+------------+-------+----------+-------------------+
+| id | name       | price | brand    | description       |
++----+------------+-------+----------+-------------------+
+|  1 | Biscuit    |    15 | TATA     | food snack        |
+|  2 | Soap       |    25 | TATA     | daily use product |
+|  3 | Battery    |   120 | Reliance | electronic item   |
+| 10 | Television |   300 | Reliance | electronic device |
+| 12 | Router     |    80 | TATA     | electronic device |
+| 15 | Bisconia   |    12 | TATA     | food snack        |
+| 16 | Cornia     |    18 | Reliance | food item         |
+| 17 | Rice       |    60 | TATA     | grocery item      |
+| 25 | Pasta      |    18 | TATA     | food item         |
+| 26 | Phone      |   200 | Reliance | electronic gadget |
++----+------------+-------+----------+-------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from Product where brand in("RELIANCE","TATA");
++----+------------+-------+----------+-------------------+
+| id | name       | price | brand    | description       |
++----+------------+-------+----------+-------------------+
+|  1 | Biscuit    |    15 | TATA     | food snack        |
+|  2 | Soap       |    25 | TATA     | daily use product |
+|  3 | Battery    |   120 | Reliance | electronic item   |
+| 10 | Television |   300 | Reliance | electronic device |
+| 12 | Router     |    80 | TATA     | electronic device |
+| 15 | Bisconia   |    12 | TATA     | food snack        |
+| 16 | Cornia     |    18 | Reliance | food item         |
+| 17 | Rice       |    60 | TATA     | grocery item      |
+| 25 | Pasta      |    18 | TATA     | food item         |
+| 26 | Phone      |   200 | Reliance | electronic gadget |
++----+------------+-------+----------+-------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from Product where description like '%b%;
+    '> select * from Product where description like '%b%;^C
+mysql>
+mysql> select * from Product where description like '%b%';
+Empty set (0.00 sec)
+
+mysql> select * from Product where description like '%electronic%';
++----+--------------+-------+----------+----------------------+
+| id | name         | price | brand    | description          |
++----+--------------+-------+----------+----------------------+
+|  3 | Battery      |   120 | Reliance | electronic item      |
+|  8 | Camera       |   500 | Sony     | electronic gadget    |
+|  9 | Fan          |    90 | Bajaj    | electronic appliance |
+| 10 | Television   |   300 | Reliance | electronic device    |
+| 11 | Mobile       |   150 | Samsung  | electronic gadget    |
+| 12 | Router       |    80 | TATA     | electronic device    |
+| 13 | Printer      |   200 | HP       | electronic device    |
+| 22 | Bulb         |    40 | Philips  | electronic accessory |
+| 26 | Phone        |   200 | Reliance | electronic gadget    |
+| 27 | Radio        |    35 | Sony     | electronic device    |
+| 28 | Refrigerator |   400 | Samsung  | electronic appliance |
+| 29 | Projector    |   250 | Sony     | electronic device    |
+| 30 | Powerbank    |    75 | Mi       | electronic gadget    |
++----+--------------+-------+----------+----------------------+
+13 rows in set (0.00 sec)
+
+mysql> select * from Product where not price between 10 and 100;
++----+--------------+-------+----------+----------------------+
+| id | name         | price | brand    | description          |
++----+--------------+-------+----------+----------------------+
+|  3 | Battery      |   120 | Reliance | electronic item      |
+|  5 | Pencil       |     5 | Cello    | school stationery    |
+|  7 | Rubber       |     8 | Apsara   | school item          |
+|  8 | Camera       |   500 | Sony     | electronic gadget    |
+| 10 | Television   |   300 | Reliance | electronic device    |
+| 11 | Mobile       |   150 | Samsung  | electronic gadget    |
+| 13 | Printer      |   200 | HP       | electronic device    |
+| 26 | Phone        |   200 | Reliance | electronic gadget    |
+| 28 | Refrigerator |   400 | Samsung  | electronic appliance |
+| 29 | Projector    |   250 | Sony     | electronic device    |
++----+--------------+-------+----------+----------------------+
+10 rows in set (0.00 sec)
+
+mysql> insert into Product values (31,"Dettol Soap",10,"Dettol","Bathing Soap";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> insert into Product values (31,"Dettol Soap",10,"Dettol","Bathing Soap");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from Product;
++----+--------------+-------+-----------+----------------------+
+| id | name         | price | brand     | description          |
++----+--------------+-------+-----------+----------------------+
+|  1 | Biscuit      |    15 | TATA      | food snack           |
+|  2 | Soap         |    25 | TATA      | daily use product    |
+|  3 | Battery      |   120 | Reliance  | electronic item      |
+|  4 | Pen          |    10 | Cello     | stationery item      |
+|  5 | Pencil       |     5 | Cello     | school stationery    |
+|  6 | Notebook     |    50 | Classmate | school item          |
+|  7 | Rubber       |     8 | Apsara    | school item          |
+|  8 | Camera       |   500 | Sony      | electronic gadget    |
+|  9 | Fan          |    90 | Bajaj     | electronic appliance |
+| 10 | Television   |   300 | Reliance  | electronic device    |
+| 11 | Mobile       |   150 | Samsung   | electronic gadget    |
+| 12 | Router       |    80 | TATA      | electronic device    |
+| 13 | Printer      |   200 | HP        | electronic device    |
+| 14 | Chocolatenia |    20 | Nestle    | food item            |
+| 15 | Bisconia     |    12 | TATA      | food snack           |
+| 16 | Cornia       |    18 | Reliance  | food item            |
+| 17 | Rice         |    60 | TATA      | grocery item         |
+| 18 | Rope         |    30 | Local     | utility item         |
+| 19 | Racket       |    70 | Yonex     | sports item          |
+| 20 | Bottle       |    15 | Milton    | kitchen item         |
+| 21 | Plate        |    25 | Milton    | kitchen item         |
+| 22 | Bulb         |    40 | Philips   | electronic accessory |
+| 23 | Bread        |    12 | Britannia | food item            |
+| 24 | Butter       |    55 | Amul      | food item            |
+| 25 | Pasta        |    18 | TATA      | food item            |
+| 26 | Phone        |   200 | Reliance  | electronic gadget    |
+| 27 | Radio        |    35 | Sony      | electronic device    |
+| 28 | Refrigerator |   400 | Samsung   | electronic appliance |
+| 29 | Projector    |   250 | Sony      | electronic device    |
+| 30 | Powerbank    |    75 | Mi        | electronic gadget    |
+| 31 | Dettol Soap  |    10 | Dettol    | Bathing Soap         |
++----+--------------+-------+-----------+----------------------+
+31 rows in set (0.00 sec)
+
+mysql> select * from Product where not price between 10 and 100;
++----+--------------+-------+----------+----------------------+
+| id | name         | price | brand    | description          |
++----+--------------+-------+----------+----------------------+
+|  3 | Battery      |   120 | Reliance | electronic item      |
+|  5 | Pencil       |     5 | Cello    | school stationery    |
+|  7 | Rubber       |     8 | Apsara   | school item          |
+|  8 | Camera       |   500 | Sony     | electronic gadget    |
+| 10 | Television   |   300 | Reliance | electronic device    |
+| 11 | Mobile       |   150 | Samsung  | electronic gadget    |
+| 13 | Printer      |   200 | HP       | electronic device    |
+| 26 | Phone        |   200 | Reliance | electronic gadget    |
+| 28 | Refrigerator |   400 | Samsung  | electronic appliance |
+| 29 | Projector    |   250 | Sony     | electronic device    |
++----+--------------+-------+----------+----------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from Product where price between 10 and 100;
++----+--------------+-------+-----------+----------------------+
+| id | name         | price | brand     | description          |
++----+--------------+-------+-----------+----------------------+
+|  1 | Biscuit      |    15 | TATA      | food snack           |
+|  2 | Soap         |    25 | TATA      | daily use product    |
+|  4 | Pen          |    10 | Cello     | stationery item      |
+|  6 | Notebook     |    50 | Classmate | school item          |
+|  9 | Fan          |    90 | Bajaj     | electronic appliance |
+| 12 | Router       |    80 | TATA      | electronic device    |
+| 14 | Chocolatenia |    20 | Nestle    | food item            |
+| 15 | Bisconia     |    12 | TATA      | food snack           |
+| 16 | Cornia       |    18 | Reliance  | food item            |
+| 17 | Rice         |    60 | TATA      | grocery item         |
+| 18 | Rope         |    30 | Local     | utility item         |
+| 19 | Racket       |    70 | Yonex     | sports item          |
+| 20 | Bottle       |    15 | Milton    | kitchen item         |
+| 21 | Plate        |    25 | Milton    | kitchen item         |
+| 22 | Bulb         |    40 | Philips   | electronic accessory |
+| 23 | Bread        |    12 | Britannia | food item            |
+| 24 | Butter       |    55 | Amul      | food item            |
+| 25 | Pasta        |    18 | TATA      | food item            |
+| 27 | Radio        |    35 | Sony      | electronic device    |
+| 30 | Powerbank    |    75 | Mi        | electronic gadget    |
+| 31 | Dettol Soap  |    10 | Dettol    | Bathing Soap         |
++----+--------------+-------+-----------+----------------------+
+21 rows in set (0.00 sec)
+
+mysql> select * from Product where not price between 10 and 100;
++----+--------------+-------+----------+----------------------+
+| id | name         | price | brand    | description          |
++----+--------------+-------+----------+----------------------+
+|  3 | Battery      |   120 | Reliance | electronic item      |
+|  5 | Pencil       |     5 | Cello    | school stationery    |
+|  7 | Rubber       |     8 | Apsara   | school item          |
+|  8 | Camera       |   500 | Sony     | electronic gadget    |
+| 10 | Television   |   300 | Reliance | electronic device    |
+| 11 | Mobile       |   150 | Samsung  | electronic gadget    |
+| 13 | Printer      |   200 | HP       | electronic device    |
+| 26 | Phone        |   200 | Reliance | electronic gadget    |
+| 28 | Refrigerator |   400 | Samsung  | electronic appliance |
+| 29 | Projector    |   250 | Sony     | electronic device    |
++----+--------------+-------+----------+----------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from Product where price not between 10 and 100;
++----+--------------+-------+----------+----------------------+
+| id | name         | price | brand    | description          |
++----+--------------+-------+----------+----------------------+
+|  3 | Battery      |   120 | Reliance | electronic item      |
+|  5 | Pencil       |     5 | Cello    | school stationery    |
+|  7 | Rubber       |     8 | Apsara   | school item          |
+|  8 | Camera       |   500 | Sony     | electronic gadget    |
+| 10 | Television   |   300 | Reliance | electronic device    |
+| 11 | Mobile       |   150 | Samsung  | electronic gadget    |
+| 13 | Printer      |   200 | HP       | electronic device    |
+| 26 | Phone        |   200 | Reliance | electronic gadget    |
+| 28 | Refrigerator |   400 | Samsung  | electronic appliance |
+| 29 | Projector    |   250 | Sony     | electronic device    |
++----+--------------+-------+----------+----------------------+
+10 rows in set (0.00 sec)
+
+mysql>
